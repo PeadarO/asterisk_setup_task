@@ -23,7 +23,7 @@ Linux Test Task
 +5. Download source code for latest stable asterisk (15.x)
 	git clone -b 15.4 http://gerrit.asterisk.org/asterisk asterisk-15.4
 =========
-*6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
++6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
 
 	advice from README.md
 		$ configure --help
@@ -36,10 +36,18 @@ Linux Test Task
 
 	configure: error: *** termcap support not found (on modern systems, this typically means the ncurses development package is missing)
 	sudo apt-get install libncurses5-dev
+	sudo apt-get install uuid-dev
+	sudo apt-get install libjansson-dev 
+	sudo apt-get install libxml2
+	sudo apt-get install libxml2-dev
+	sudo apt-get install libsqlite3-dev
 		
 =========
-7. Configure asterisk build to enable "chan_sip" and manager modules
++7. Configure asterisk build to enable "chan_sip" and "manager" modules
 	what is chan_sip:
+	$ make menuselect
+		channel drivers --> chan_sip
+		channel detail recording --> cdr_manager
 
 8. Configure asterisk build options to enable maximum level of debugging  (threads, memory leaks, etc)
 	check "max debug level" in configure script
