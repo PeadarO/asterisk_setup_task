@@ -16,16 +16,25 @@ Linux Test Task
 	in /etc/network/interfaces ?
 	set up in Vagrantfile with "config vm.public ip 10.50.50.21"
 
-4. Configure ssh console access to this VM 
++4. Configure ssh console access to this VM 
 	Vagrant provides ssh access by default
 	$ vagrant ssh
 
-5. Download source code for latest stable asterisk (15.x)
++5. Download source code for latest stable asterisk (15.x)
 	git clone -b 15.4 http://gerrit.asterisk.org/asterisk asterisk-15.4
+=========
+*6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
 
-6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
+	advice from README.md
+		$ configure --help
+		$ make menuselect
+
 	make list of dependencies: apt show asterisk (dendencies?)
+
+	C++ preprocessor sanity check failed:
+		with sudo apt-get install g++
 		
+=========
 7. Configure asterisk build to enable "chan_sip" and manager modules
 	what is chan_sip:
 
