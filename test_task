@@ -35,7 +35,7 @@ Linux Test Task
 		with sudo apt-get install g++
 
 	configure: error: *** termcap support not found (on modern systems, this typically means the ncurses development package is missing)
-
+	sudo apt-get install libncurses5-dev
 		
 =========
 7. Configure asterisk build to enable "chan_sip" and manager modules
