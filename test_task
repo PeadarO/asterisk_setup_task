@@ -7,22 +7,27 @@ Linux Test Task
 		provide 4 GB of mem
 	set up with Vagrant
 
+====================================
 +2. Disable firewall
 	$ ufw disable
 	$ ufw status
 		status: inactive
 
+====================================
 +3. Set up static IP address , e.g. 10.50.50.21
 	in /etc/network/interfaces ?
 	set up in Vagrantfile with "config vm.public ip 10.50.50.21"
 
+====================================
 +4. Configure ssh console access to this VM 
 	Vagrant provides ssh access by default
 	$ vagrant ssh
 
+====================================
 +5. Download source code for latest stable asterisk (15.x)
 	git clone -b 15.4 http://gerrit.asterisk.org/asterisk asterisk-15.4
-=========
+
+====================================
 +6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
 
 	advice from README.md
@@ -42,32 +47,37 @@ Linux Test Task
 	sudo apt-get install libxml2-dev
 	sudo apt-get install libsqlite3-dev
 		
-=========
+====================================
 +7. Configure asterisk build to enable "chan_sip" and "manager" modules
 	what is chan_sip:
 	$ make menuselect
 		channel drivers --> chan_sip
 		channel detail recording --> cdr_manager
 
+====================================
 +8. Configure asterisk build options to enable maximum level of debugging  (threads, memory leaks, etc)
-	check "max debug level" in configure script
 	compile options in menuselect
 
+====================================
 +9. Build asterisk 
 	./configure
 	make 
 
+====================================
 +10. Install asterisk and sample config files
 	make install: what exactly config files ?
 	$ make install
 	$ make samples
 
+====================================
 11. Configure asterisk to 
 a. Chan sip – to listen to 10.50.50.21 
 b. Enable manager module and configure to listen to 10.50.50.21
 
+====================================
 12. Configure asterisk logging level to verbose and debug (100)
 	in asterisk config files
+====================================
 
 13. Launch asterisk , check logs, make sure there are no errors in the log
 	this gotta be fun !!! ))
