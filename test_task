@@ -33,6 +33,9 @@ Linux Test Task
 
 	C++ preprocessor sanity check failed:
 		with sudo apt-get install g++
+
+	configure: error: *** termcap support not found (on modern systems, this typically means the ncurses development package is missing)
+
 		
 =========
 7. Configure asterisk build to enable "chan_sip" and manager modules
