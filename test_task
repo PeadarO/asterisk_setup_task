@@ -49,15 +49,18 @@ Linux Test Task
 		channel drivers --> chan_sip
 		channel detail recording --> cdr_manager
 
-8. Configure asterisk build options to enable maximum level of debugging  (threads, memory leaks, etc)
++8. Configure asterisk build options to enable maximum level of debugging  (threads, memory leaks, etc)
 	check "max debug level" in configure script
+	compile options in menuselect
 
-9. Build asterisk 
++9. Build asterisk 
 	./configure
 	make 
 
-10. Install asterisk and sample config files
++10. Install asterisk and sample config files
 	make install: what exactly config files ?
+	$ make install
+	$ make samples
 
 11. Configure asterisk to 
 a. Chan sip – to listen to 10.50.50.21 
