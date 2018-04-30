@@ -1,30 +1,74 @@
 Linux Test Task
 
-1. Create VM with latest stable Ubuntu  server 
++1. Create VM with latest stable Ubuntu  server 
 	download Ubunntu 18
 	install in VirtualBox
+		install with shared drive
+		provide 4 GB of mem
+	set up with Vagrant
 
-2. Disable firewall
-3. Set up static IP address , e.g. 10.50.50.21
++2. Disable firewall
+	$ ufw disable
+	$ ufw status
+		status: inactive
+
++3. Set up static IP address , e.g. 10.50.50.21
+	in /etc/network/interfaces ?
+	set up in Vagrantfile with "config vm.public ip 10.50.50.21"
+
 4. Configure ssh console access to this VM 
+	Vagrant provides ssh access by default
+	$ vagrant ssh
+
 5. Download source code for latest stable asterisk (15.x)
+	git clone -b 15.4 http://gerrit.asterisk.org/asterisk asterisk-15.4
+
 6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
-7. Configure asterisk build to enable chan_sip and manager modules
+	make list of dependencies: apt show asterisk (dendencies?)
+		
+7. Configure asterisk build to enable "chan_sip" and manager modules
+	what is chan_sip:
+
 8. Configure asterisk build options to enable maximum level of debugging  (threads, memory leaks, etc)
+	check "max debug level" in configure script
+
 9. Build asterisk 
+	./configure
+	make 
+
 10. Install asterisk and sample config files
+	make install: what exactly config files ?
+
 11. Configure asterisk to 
 a. Chan sip – to listen to 10.50.50.21 
 b. Enable manager module and configure to listen to 10.50.50.21
+
 12. Configure asterisk logging level to verbose and debug (100)
+	in asterisk config files
+
 13. Launch asterisk , check logs, make sure there are no errors in the log
+	this gotta be fun !!! ))
+
 14. Verify that asterisk is running on the background
+	ps/top ?
+
 15. Verify that asterisk is listening to 10.50.50.21 udp port 5060 and tcp port 5038
+	ss -ntlp / ps ?
+
 16. Configure asterisk to auto-start when the VM starts (after each reboot)
+	apparetnly sysctl (we are in ub 18 guys)
+
 17. Configure asterisk to dump core to /tmp
+	how to dump program core to /tmp
+
 18. Install debugging and profiling tools
+	gprof / valgrind / gdb
+
 19. Figure out how to start asterisk in debug mode (using debug tools) 
+	some "--debug" option is sysctl script ?
+
 20. Figure out how to cause asterisk to crash and dump core
+	update source ?
 
 
 Deliverables:
