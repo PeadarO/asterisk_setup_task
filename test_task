@@ -25,6 +25,8 @@ Linux Test Task
 
 6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
 	make list of dependencies: apt show asterisk (dendencies?)
+
+sudo apt-get install libncurses5-dev
 		
 7. Configure asterisk build to enable "chan_sip" and manager modules
 	what is chan_sip:
