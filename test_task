@@ -1,0 +1,36 @@
+Linux Test Task
+
+1. Create VM with latest stable Ubuntu  server 
+	download Ubunntu 18
+	install in VirtualBox
+
+2. Disable firewall
+3. Set up static IP address , e.g. 10.50.50.21
+4. Configure ssh console access to this VM 
+5. Download source code for latest stable asterisk (15.x)
+6. Figure out necessary dependencies to build asterisk. Install dependencies through package manager
+7. Configure asterisk build to enable chan_sip and manager modules
+8. Configure asterisk build options to enable maximum level of debugging  (threads, memory leaks, etc)
+9. Build asterisk 
+10. Install asterisk and sample config files
+11. Configure asterisk to 
+a. Chan sip – to listen to 10.50.50.21 
+b. Enable manager module and configure to listen to 10.50.50.21
+12. Configure asterisk logging level to verbose and debug (100)
+13. Launch asterisk , check logs, make sure there are no errors in the log
+14. Verify that asterisk is running on the background
+15. Verify that asterisk is listening to 10.50.50.21 udp port 5060 and tcp port 5038
+16. Configure asterisk to auto-start when the VM starts (after each reboot)
+17. Configure asterisk to dump core to /tmp
+18. Install debugging and profiling tools
+19. Figure out how to start asterisk in debug mode (using debug tools) 
+20. Figure out how to cause asterisk to crash and dump core
+
+
+Deliverables:
+1. Demo running asterisk on the VM
+2. Prove  that asterisk is listening to 10.50.50.21 udp port 5060 and tcp port 5038
+3. Show that there are no errors in the full asterisk log
+4. Prove that asterisk is auto-starting when the OS starts
+5. Show how to connect to running asterisk via debug tools
+6. Show how to debug coredump  and identify source code line where the asterisk crashed
