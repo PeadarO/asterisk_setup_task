@@ -123,8 +123,27 @@ b. Enable manager module and configure to listen to 10.50.50.21
 		from source. configure asterisk to start on boot.
 
 ====================================
-17. Configure asterisk to dump core to /tmp
-	how to dump program core to /tmp
++17. Configure asterisk to dump core to /tmp
+	run with -g to dump core on crash
+
+  in	asterisk.conf "dumpcore yes"
+
+		I was relly lucky to find this in asterisk book:
+		"This is critical for debugging crashes.
+		 However, Asterisk must be compiled with the DONT_OPTIMIZE option enabled in menuselect for the core dump to be useful."
+	
+	it appears that cores are dump to /tmp by default:
+		#
+		# The exclusion of files ending ".txt" is just for
+		# demonstration purposes as non-coredumps will be ignored
+		# anyway.
+		COREDUMPS=(/tmp/core[-._]asterisk!(*.txt) /tmp/core[-._]$(hostname)!(*.txt))
+
+		# The directory to contain output files and work directories.
+		# For output from existing core files, the default is the
+		# directory that the core file is found in.  For core files
+		# produced from a running process, the default is /tmp.
+		OUTPUTDIR=/some/directory
 
 ====================================
 18. Install debugging and profiling tools
