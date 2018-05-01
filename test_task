@@ -108,16 +108,19 @@ b. Enable manager module and configure to listen to 10.50.50.21
 		actually there are [ERROR] in log(verbose), however cant say yet if they are normal
 
 ====================================
-14. Verify that asterisk is running on the background
-	ps/top ?
++14. Verify that asterisk is running on the background
+	ps -C asterisk
 
 ====================================
-15. Verify that asterisk is listening to 10.50.50.21 udp port 5060 and tcp port 5038
-	ss -ntlp / ps ?
++15. Verify that asterisk is listening to 10.50.50.21 udp port 5060 and tcp port 5038
+	ss -ntlp 
+		udp    UNCONN     0      0      10.50.50.21:sip                   *:*                    
+		tcp    LISTEN     0      10     10.50.50.21:5038                  *:*                    
 
 ====================================
-16. Configure asterisk to auto-start when the VM starts (after each reboot)
-	apparetnly sysctl (we are in ub 18 guys)
++16. Configure asterisk to auto-start when the VM starts (after each reboot)
+	$ make config
+		from source. configure asterisk to start on boot.
 
 ====================================
 17. Configure asterisk to dump core to /tmp
