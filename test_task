@@ -75,31 +75,50 @@ a. Chan sip – to listen to 10.50.50.21
 b. Enable manager module and configure to listen to 10.50.50.21
 
 ====================================
-12. Configure asterisk logging level to verbose and debug (100)
-	in asterisk config files
++12. Configure asterisk logging level to verbose and debug (100)
+
+	/etc/asterisk/logger.conf
+		...
+		debug => debug
+		;security => security
+		console => notice,warning,error
+		;console => notice,warning,error,debug
+		verbose => verbose(100)
+		...
+
+	/home/vagrant/asterisk-15.4/configs/basic-pbx/logger.conf
+
 ====================================
-
 13. Launch asterisk , check logs, make sure there are no errors in the log
-	this gotta be fun !!! ))
+	checked /var/log/asterisk/debug
+	checked /var/log/asterisk/verbose
 
+
+====================================
 14. Verify that asterisk is running on the background
 	ps/top ?
 
+====================================
 15. Verify that asterisk is listening to 10.50.50.21 udp port 5060 and tcp port 5038
 	ss -ntlp / ps ?
 
+====================================
 16. Configure asterisk to auto-start when the VM starts (after each reboot)
 	apparetnly sysctl (we are in ub 18 guys)
 
+====================================
 17. Configure asterisk to dump core to /tmp
 	how to dump program core to /tmp
 
+====================================
 18. Install debugging and profiling tools
 	gprof / valgrind / gdb
 
+====================================
 19. Figure out how to start asterisk in debug mode (using debug tools) 
 	some "--debug" option is sysctl script ?
 
+====================================
 20. Figure out how to cause asterisk to crash and dump core
 	update source ?
 
