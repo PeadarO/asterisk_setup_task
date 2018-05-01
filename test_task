@@ -52,7 +52,7 @@ Linux Test Task
 	what is chan_sip:
 	$ make menuselect
 		channel drivers --> chan_sip
-		channel detail recording --> cdr_manager
+		channel(Call) detail recording --> cdr_manager
 
 ====================================
 +8. Configure asterisk build options to enable maximum level of debugging  (threads, memory leaks, etc)
@@ -89,10 +89,11 @@ b. Enable manager module and configure to listen to 10.50.50.21
 	/home/vagrant/asterisk-15.4/configs/basic-pbx/logger.conf
 
 ====================================
-13. Launch asterisk , check logs, make sure there are no errors in the log
-	checked /var/log/asterisk/debug
-	checked /var/log/asterisk/verbose
-
++13. Launch asterisk , check logs, make sure there are no errors in the log
+	checked:
+		/var/log/asterisk/debug
+		/var/log/asterisk/verbose
+		actually there are [ERROR] in log(verbose), however cant say yet if they are normal
 
 ====================================
 14. Verify that asterisk is running on the background
