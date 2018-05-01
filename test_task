@@ -70,9 +70,21 @@ Linux Test Task
 	$ make samples
 
 ====================================
-11. Configure asterisk to 
+*11. Configure asterisk to 
+
 a. Chan sip – to listen to 10.50.50.21 
+	in /etc/asterisk/sip.conf
+	udpbindaddr=10.50.50.21       ; IP address to bind UDP listen socket to (0.0.0.0 binds to all)
+                                ; Optionally add a port number, 192.168.1.1:5062 (default is port 5060)
+
 b. Enable manager module and configure to listen to 10.50.50.21
+	in /etc/asterisk/manager.conf
+		[general]
+		enabled = yes 
+		;webenabled = yes
+
+		port = 5038
+		bindaddr = 10.50.50.21
 
 ====================================
 +12. Configure asterisk logging level to verbose and debug (100)
