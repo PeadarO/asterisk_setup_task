@@ -146,15 +146,24 @@ b. Enable manager module and configure to listen to 10.50.50.21
 		OUTPUTDIR=/some/directory
 
 ====================================
-18. Install debugging and profiling tools
-	gprof / valgrind / gdb
+*18. Install debugging and profiling tools
+	well both gdb and gprof are setup already. I gues gdb is our main tool
+
+	ast_coredumper:
+	in ast_debug_tools.conf
+		#OUTPUTDIR=/some/directory
+		OUTPUTDIR=/tmp
+
+		viewcore ?
 
 ====================================
-19. Figure out how to start asterisk in debug mode (using debug tools) 
-	some "--debug" option is sysctl script ?
+*19. Figure out how to start asterisk in debug mode (using debug tools) 
+	man asterisk says about '-g' option
+	gdb -p pid
 
 ====================================
-20. Figure out how to cause asterisk to crash and dump core
+*20. Figure out how to cause asterisk to crash and dump core
+	used ast_coredumper --running to dump core to tmp, but this does not crash asterisk
 	update source ?
 
 
@@ -164,4 +173,6 @@ Deliverables:
 3. Show that there are no errors in the full asterisk log
 4. Prove that asterisk is auto-starting when the OS starts
 5. Show how to connect to running asterisk via debug tools
+	gdb -p pid
+
 6. Show how to debug coredump  and identify source code line where the asterisk crashed
