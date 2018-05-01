@@ -70,7 +70,7 @@ Linux Test Task
 	$ make samples
 
 ====================================
-*11. Configure asterisk to 
++11. Configure asterisk to 
 
 a. Chan sip – to listen to 10.50.50.21 
 	in /etc/asterisk/sip.conf
